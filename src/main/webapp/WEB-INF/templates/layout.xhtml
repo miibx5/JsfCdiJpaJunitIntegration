@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <title><h:outputText value="Tutorial JSF, CDI, JPA" /></title>
+        <h:outputStylesheet library="css" name="default.css" />
+        <h:outputScript library="js" name="primefaces-locale.js" />
+        <h:outputScript library="js" name="codigos.js" />
+        <h:outputScript library="js" name="dialogsCallBacks.js" />
+    </h:head>
+
+    <h:body>
+        <p:layout fullPage="true" style="">
+
+            <p:layoutUnit position="north" header="Tutorial JSF, CDI, JPA" style="text-align: center;" />
+
+            <p:layoutUnit position="center" >
+
+                <h:form id="frmLayout" >
+
+                    <p:menubar id="mnMenu" >
+
+                        <p:menuitem id="mnItHome" value="Home" icon="ui-icon-home" outcome="home"/>
+
+                        <p:submenu id="mnItCadastros" label="Cadastros" icon="ui-icon-gear">
+
+                            <p:separator id="sptInicio" />
+
+                            <p:menuitem id="mnItPessoas" value="Pessoas" icon="ui-icon-gear" action="#{listPersonsController.listPersons()}"  />
+
+                        </p:submenu>
+
+                        <f:facet name="options">
+
+                            <h:outputText value="Olá, " styleClass="funcionario-logado" />
+
+                            <p:commandButton value="Sair" icon="ui-icon-extlink"  ajax="false" />
+
+                        </f:facet>
+
+                    </p:menubar>
+
+                </h:form>
+
+                <ui:insert id="content" name="content">Todo Conteúdo Deve Ser Inserido Aqui!!!</ui:insert>
+
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" header="© Tutorial JSF, CDI, JPA - Todos Os Direitos Reservados"  style="text-align: center;" />
+
+        </p:layout>
+
+    </h:body>
+
+</html>

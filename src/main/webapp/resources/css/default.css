@@ -1,0 +1,285 @@
+/*
+    Document   : default
+    Created on : 27/04/2013, 11:58:23
+    Author     : Luciano
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root {
+    display: block;
+}
+
+.ui-widget
+{
+    font-size: 14px !important;
+    /*color: blue !important;*/
+}
+.ui-widget-header
+{
+    text-align: center;
+    /*color:  blue !important;*/
+}
+/*.ui-widget-content
+{
+    color:  blue !important;
+}
+
+.ui-menu
+{
+    color:  blue !important;
+}
+
+.ui-menubar
+{
+    color:  blue !important;
+}
+
+.ui-corner-all
+{
+    color:  blue !important;
+}
+
+.ui-helper-clearfix
+{
+    color:  blue !important;
+}
+
+.ui-tabs-nav
+{
+    color:  blue !important;
+}
+
+.ui-helper-reset
+{
+    color:  blue !important;
+}
+
+
+.ui-widget-header
+{
+    color:  blue !important;
+} */
+
+.ui-corner-top
+{
+    text-align: center;
+}
+
+.ui-dialog-title
+{
+    text-align: center !important;
+}
+
+.ui-layout-unit-header
+{
+    text-align: center;
+}
+
+.ui-dialog-titlebar
+{
+    text-align: center;
+}
+
+
+body
+{
+    font-size: 14px !important;
+    /*color:  blue !important;*/
+}
+
+table
+{
+    font-size: 14px !important;
+    text-align: left;
+    /*color:  blue !important;*/
+}
+
+.caixa-login
+{
+    position: absolute;
+    left: 42%;
+    top: 42%;
+    text-align: left;
+}
+
+
+
+.box-cadastro-categorias
+{
+    text-align: left;
+    position: absolute;
+    top: 50%;
+    left: 35%;
+}
+
+.box-cadastro-produtos
+{
+    text-align: left;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+}
+
+.box-cadastro-contas
+{
+    text-align: left;
+    position: relative;
+    top: 15em;
+    left: 35%;
+}
+
+
+.caixa-cadastro-cargos
+{
+    position: absolute;
+    left: 40%;
+    top: 48%;
+    text-align: left;
+    font-size: 14px;
+}
+
+.caixa-cadastro-empresas
+{
+    position: absolute;
+    left: 35%;
+    top: 30%;
+    text-align: left;
+    font-size: 14px;
+}
+
+.caixa-cadastro-funcionarios
+{
+    position: absolute;
+    top: 28%;
+    left: 27%;
+    text-align: left;
+    font-size: 14px;
+}
+
+.caixa-cadastro-contas
+{
+    position: absolute;
+    left: 35%;
+    top: 40%;
+    text-align: left;
+    font-size: 14px;
+}
+
+.negrito
+{
+    font-weight: bolder;
+    font-size: 14px;
+}
+
+
+.campo
+{
+    text-align: left;
+}
+
+.label
+{
+    font-weight: bolder;
+    font-size: 14px;
+}
+
+
+.campo-produto
+{
+    text-align: left;
+}
+.label-produto
+{
+    font-weight: bolder;
+    font-size: 14px;
+    color: blueviolet;
+}
+
+
+.button
+{
+    margin: 1em 0px;
+}
+
+.panel-box
+{
+    text-align: center;
+    height: 36.3em;
+    font-size: 14px;
+}
+
+.column-id
+{
+    width: 40px;
+    text-align: center;
+}
+
+.column-valor
+{
+    width: 60px;
+    text-align: right;
+}
+
+.column-actions
+{
+    width: 50px;
+    text-align: right;
+}
+
+.campo-left
+{
+    text-align: left;
+}
+
+.right-button
+{
+    /*margin: 5px;*/
+    float: right;
+}
+
+.column-money
+{
+    float: right;
+}
+.left-button
+{
+    margin: 5px;
+    float: left;
+}
+
+.texto-centralizado
+{
+    position: absolute;
+    left: 50%;
+    text-align: center;
+}
+
+.ui-panel
+{
+    text-align: center;
+}
+
+.centro-da-tela
+{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left:-110px;
+    margin-top:-40px;
+}
+
+.funcionario-logado
+{
+    color: red;
+    font-weight: bolder;
+}
+
+.ui-datatable-empty-message{
+    color: red;
+}
+
+.ui-datatable-header ui-widget-header ui-corner-top
+{
+    padding: 15px  15px !important;
+}

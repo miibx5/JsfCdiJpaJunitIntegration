@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../WEB-INF/templates/layout.xhtml">
+
+            <ui:define name="content">
+
+                <h:form id="frmListPersons">
+
+                    <p:panel id="pnPersons" header="List Of Persons">
+
+                        <p:messages id="msgsPersons" globalOnly="true" closable="true"/>
+
+                        <p:dataTable  id="dtbListPersons" var="person" value="#{listPersonsController.persons}" >
+
+                            <f:facet id="cabecalho" name="header">
+
+                                <h:outputText value="Active Persons" class="texto-centralizado" />
+                                <p:commandButton id="cmbnewPerson" icon="ui-icon-circle-plus" value="New Person"
+                                                 styleClass="right-button" oncomplete="PF('dlgNewPerson').show();"
+                                                 actionListener="#{listPersonsController.doCreatePerson()}"
+                                                 update=":frmNewPerson:pgNewPerson"/>
+                                <br />
+                                <br />
+                            </f:facet>
+
+                            <p:column id="clmPrsId" headerText="Id" styleClass="column-id">
+                                <h:outputText value="#{person.id}" />
+                            </p:column>
+
+                            <p:column id="clmPrsAtivoId" headerText="Active" styleClass="column-id">
+                                <h:outputText value="#{person.active}" />
+                            </p:column>
+
+                            <p:column id="clmPrsName" headerText="Name" styleClass="column-id">
+                                <h:outputText value="#{person.name}" />
+                            </p:column>
+
+                            <p:column id="clmPrsDatNasc" headerText="Date Of Birth" styleClass="column-id">
+                                <h:outputText value="#{person.dateOfBirth}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                                </h:outputText>
+                            </p:column>
+
+                        </p:dataTable>
+
+                    </p:panel>
+
+                </h:form>
+
+                <h:form id="frmNewPerson">
+
+                    <p:dialog id="dlgNewPerson" widgetVar="dlgNewPerson"  header="New Person" resizable="false">
+
+                        <h:panelGrid id="pgNewPerson" columns="2" columnClasses="label,campo">
+
+                            <p:outputLabel  id="lblName" value="Name " for="name" />
+                            <p:inputText  id="name" value="#{listPersonsController.person.name}" label="lblName"/>
+
+                            <p:outputLabel id="lblDateOfBirth" value="Date Of Birth:" for="dateOfBirth"/>
+                            <p:calendar id="dateOfBirth" value="#{listPersonsController.person.dateOfBirth}" label="lblDateOfBirth" pattern="dd/MM/yyyy">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </p:calendar>
+
+                        </h:panelGrid>
+
+                        <p:commandButton value="Salvar" icon="ui-icon-disk" styleClass="right-button"
+                                         update=":frmNewPerson:pgNewPerson, :frmListPersons:dtbListPersons, :frmListPersons:msgsPersons"
+                                         oncomplete="handlePersonRequest(args);" action="#{listPersonsController.savePerson()}"/>
+
+                        <p:commandButton id="cmbFechar" value="Fechar" styleClass="right-button" icon="ui-icon-circle-close" oncomplete="PF('dlgNewPerson').hide();"/>
+
+                    </p:dialog>
+
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+
+</html>
