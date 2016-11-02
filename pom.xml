@@ -12,10 +12,20 @@
     <packaging>war</packaging>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <expression.language.version>2.2</expression.language.version>
+        <hibernate-version>5.2.3.Final</hibernate-version>
+        <javax.cdi.version>1.2</javax.cdi.version>
+        <javax.validation.version>1.1.0.Final</javax.validation.version>
+        <javax.servlet.version>3.1.0</javax.servlet.version>
+        <javax.faces.version>2.2.13</javax.faces.version>
+        <jdbc.postgres.version>9.4.1211</jdbc.postgres.version>
+        <jpa.hibernate.version>1.0.0.Final</jpa.hibernate.version>
+        <junit.version>4.12</junit.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <hibernate-version>5.2.3.Final</hibernate-version>
+        <primefaces.version>6.0</primefaces.version>
+        <primefaces.themes.version>1.0.10</primefaces.themes.version>
     </properties>
 
     <dependencies>
@@ -24,7 +34,7 @@
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.1-api</artifactId>
-            <version>1.0.0.Final</version>
+            <version>${jpa.hibernate.version}</version>
             <scope>provided</scope>
         </dependency>
 
@@ -51,68 +61,60 @@
             </exclusions>
         </dependency>
 
-
         <!-- JSF Dependences-->
         <dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>javax.faces</artifactId>
-            <version>2.2.13</version>
+            <version>${javax.faces.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.glassfish.web</groupId>
             <artifactId>el-impl</artifactId>
-            <version>2.2</version>
+            <version>${expression.language.version}</version>
         </dependency>
 
         <!-- PrimeFaces Dependences-->
         <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
-            <version>6.0</version>
+            <version>${primefaces.version}</version>
         </dependency>
 
         <!-- PrimeFaces Theme Bootstrap Dependences-->
         <dependency>
             <groupId>org.primefaces.themes</groupId>
             <artifactId>bootstrap</artifactId>
-            <version>1.0.10</version>
+            <version>${primefaces.themes.version}</version>
         </dependency>
 
         <!-- Javax Injection Dependence Context -->
         <dependency>
             <groupId>javax.enterprise</groupId>
             <artifactId>cdi-api</artifactId>
-            <version>1.2</version>
+            <version>${javax.cdi.version}</version>
         </dependency>
 
         <!-- Javax Validation -->
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
-            <version>1.1.0.Final</version>
+            <version>${javax.validation.version}</version>
         </dependency>
 
         <!-- PostgreSQL driver connector library Dependences -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>9.4.1211</version>
+            <version>${jdbc.postgres.version}</version>
         </dependency>
 
         <!-- JUnit Dependeces-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit.version}</version>
         </dependency>
-
-        <!--        <dependency>
-            <groupId>dom4j</groupId>
-            <artifactId>dom4j</artifactId>
-            <version>1.6.1</version>
-            <scope>provided</scope>
-        </dependency>-->
 
     </dependencies>
 
@@ -120,18 +122,44 @@
 
         <finalName>jsfCdiJpaJunitIntegration</finalName>
 
-        <plugins>
+        <pluginManagement>
 
-            <plugin>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.0.0</version>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                </configuration>
-            </plugin>
+            <plugins>
 
-        </plugins>
+                <plugin>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.0.0</version>
+                    <configuration>
+                        <failOnMissingWebXml>false</failOnMissingWebXml>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.5.1</version>
+                    <configuration>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                    </configuration>
+                </plugin>
+
+            </plugins>
+
+        </pluginManagement>
 
     </build>
+
+    <repositories>
+
+        <repository>
+            <id>prime-repo</id>
+            <name>PrimeFaces Maven Repository</name>
+            <url>http://repository.primefaces.org</url>
+            <layout>default</layout>
+        </repository>
+
+    </repositories>
+
 
 </project>
